@@ -9,17 +9,8 @@ type Author {
   biography: String
   birthDate: String
   nationality: String
-  books: [Book!]
   createdAt: String!
   updatedAt: String!
-}
-
-type Book {
-  id: ID!
-  title: String!
-  isbn: String!
-  publishedYear: Int
-  author: Author!
 }
 
 input CreateAuthorInput {
@@ -46,7 +37,7 @@ type Query {
 }
 
 type Mutation {
-  createAuthor(input: CreateAuthorInput!): Author!
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
   updateAuthor(id: ID!, input: UpdateAuthorInput!): Author!
   deleteAuthor(id: ID!): Boolean!
 }

@@ -18,7 +18,7 @@ const authorSchema = new mongoose.Schema(
       unique: true,
       lowercase: true
     },
-    bio: {
+    biography: {
       type: String
     },
     nationality: {

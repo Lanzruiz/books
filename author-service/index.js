@@ -4,7 +4,7 @@ const { buildSubgraphSchema } = require('@apollo/subgraph')
 const { startStandaloneServer } = require('@apollo/server/standalone');
 const mongoose = require('mongoose')
 
-const MONGODB = process.env.MONGODB || 'mongodb+srv://lanzprimeitph:ZWinqQmn4ldj6Z9b@clusterdev.goarycf.mongodb.net/';
+const MONGODB = process.env.MONGODB || 'mongodb://admin:password@localhost:27017';
 
 
 const port = Number.parseInt(process.env.PORT) || 4000;
