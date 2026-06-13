@@ -3,28 +3,32 @@ const  { gql } = require('graphql-tag');
 module.exports = gql`
 
 
-type Book {
-    title: String
-    author: String
+type Author {
+    fullname: String
+    dateOfBirth: Date
+    nationality: String
+    biography: String
 
 }
 
-input BookInput {
-    title: String
-    author: String
+input AuthorInput {
+    fullname: String
+    dateOfBirth: Date
+    nationality: String
+    biography: String
 
 }
 
 
 
 extend type Query {
-    book: [Book]
+    author: [Author]
 
 }
 
 extend type Mutation {
 
-    createBook(bookInput: BookInput): Book!
+    createAuthor(authorInput: AuthorInput): Author!
 
 
 }
