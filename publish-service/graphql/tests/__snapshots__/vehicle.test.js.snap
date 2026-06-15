@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vehicle resolver test query a vehicle -- should equal to vehicle with given id from the list 1`] = `
+{
+  "brand": "Honda",
+  "color": "blue",
+  "model": "civic",
+  "plateNumber": "abc1234",
+}
+`;
+
+exports[`vehicle resolver test query all vehicles -- should equal to all vehicles inserted 1`] = `
+[
+  {
+    "brand": "Honda",
+    "color": "blue",
+    "id": "65c35e34a3cf5ee85e713f97",
+    "model": "civic",
+    "plateNumber": "abc1234",
+  },
+]
+`;

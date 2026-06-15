@@ -7,8 +7,6 @@ type Author {
   lastName: String!
   email: String!
   biography: String
-  birthDate: String
-  nationality: String
   createdAt: String!
   updatedAt: String!
 }
@@ -18,8 +16,6 @@ input CreateAuthorInput {
   lastName: String!
   email: String!
   biography: String
-  birthDate: String
-  nationality: String
 }
 
 input UpdateAuthorInput {
@@ -27,12 +23,10 @@ input UpdateAuthorInput {
   lastName: String
   email: String
   biography: String
-  birthDate: String
-  nationality: String
 }
 
 type Query {
-  authors: [Author!]!
+  authors: [Author]
   author(id: ID!): Author
 }
 

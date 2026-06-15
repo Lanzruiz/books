@@ -21,12 +21,7 @@ const authorSchema = new mongoose.Schema(
     biography: {
       type: String
     },
-    nationality: {
-      type: String
-    },
-    birthDate: {
-      type: Date
-    }
+
   },
   {
     timestamps: true

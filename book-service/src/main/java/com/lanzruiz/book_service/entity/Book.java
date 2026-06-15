@@ -12,6 +12,7 @@ public class Book {
 	   private Long id;
 	   private String title;
 	   private String author;
+	   private int isbn;
 	   
 	   public Book() {
 		   
@@ -19,11 +20,12 @@ public class Book {
 	   
 	   
 
-	   public Book(Long id, String title, String author) {
+	   public Book(Long id, String title, String author, int isbn) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.isbn = isbn;
 	}
 
 
@@ -52,12 +54,24 @@ public class Book {
 		   this.author = author;
 	   }
 
+	   public int getIsbn() {
+		return isbn;
+	   }
+
+	   public void setIsbn(int isbn) {
+		   this.isbn = isbn;
+	   }
+
 
 
 	   @Override
 	   public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + "]";
 	   }
+
+
+
+	  
 	   
 	   
 	   

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lanzruiz.book_service.entity.Book;
 import com.lanzruiz.book_service.service.BookService;
-import com.lanzruiz.spring_boot_h2.Course;
 
 @RestController
 @RequestMapping("/api/book")

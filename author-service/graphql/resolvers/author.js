@@ -2,7 +2,7 @@ const Author = require('../../models/Author');
 
 module.exports = {
     Mutation: {
-        async createAuthor(_, { createAuthorInput: { biography, firstName, lastName, email, bio, nationality, birthDate } }) {
+        async createAuthor(_, { createAuthorInput: { biography, firstName, lastName, email } }) {
             try {
                 const existingAuthor = await Author.findOne({
                     email: email,
@@ -18,8 +18,7 @@ module.exports = {
                     lastName: lastName,
                     email: email,
                     biography: biography,
-                    nationality: nationality,
-                    birthDate: birthDate,
+
                 });
 
                 const savedAuthor = await author.save();
@@ -36,7 +35,7 @@ module.exports = {
 
     Query: {
 
-        async author() {
+        async authors() {
             return await Author.find().sort({});
 
         }

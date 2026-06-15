@@ -42,33 +42,11 @@ public class BookServiceImpl implements BookService {
 
 	        existingBook.setTitle(updatedBook.getTitle());
 	        existingBook.setAuthor(updatedBook.getAuthor());
+	        existingBook.setIsbn(updatedBook.getIsbn());
 
 	        return bookRepository.save(existingBook);
 	    }
 	  
-//	  @Override
-//	  public void updateBook(Long id, Book updatedBook) {
-//		  
-//		  Book existingBook = bookRepository.findById(id)
-//	                .orElseThrow(() ->
-//	                        new RuntimeException("Book not found with id: " + id));
-//
-//	        existingBook.setTitle(updatedBook.getTitle());
-//	        existingBook.setAuthor(updatedBook.getAuthor());
-//
-//	        bookRepository.save(existingBook);
-//
-//	        // Publish update event to Kafka
-//	        BookEvent event = new BookEvent(
-//	                savedBook.getId(),
-//	                savedBook.getTitle(),
-//	                savedBook.getAuthor()
-//	        );
-//
-//	        bookProducer.publishBook(event);
-//
-//	        
-//	  }
 
 	  
 	  @Override
