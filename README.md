@@ -1,7 +1,7 @@
 
 
 
-# Best Practices of a Microservice Architecture with Spring Boot, GraphQL, Docker, MongoDB, PostresSQL.
+# Boooks Platform Microservice Architecture with Spring Boot, GraphQL, Docker, MongoDB, PostresSQL.
 
 This repository is Dealer Management Systems based on a microservices architecture.
 
