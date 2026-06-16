@@ -32,7 +32,7 @@ The following diagram shows the targert platform architecture.:
 
 ![Targert platform architecture](/docs/images/architecture.png)
 
-Since an auto dealership application uses the Microservice architecture pattern for vehicle details data is spread over multiple services. For example,
+Since an auto dealership application uses the Microservice architecture pattern for books details data is spread over multiple services. For example,
 
 - Book Service - basic information about the book
 - Author service - store the information about the author
