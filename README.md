@@ -151,14 +151,13 @@ Author Service
 
 Publish Service
 
-:point_right: Apollo http://localhost:4001
+:point_right: Apollo http://localhost:4002
 
 
 ## Using the Swagger UI
 
 The Book Service is using the swagger http://localhost:8081/swagger-ui/index.html#/
-
-
+The two other service is using GrapQL Apollo
 
 ## Got questions?
 
