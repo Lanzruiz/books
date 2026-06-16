@@ -38,7 +38,7 @@ Since an auto dealership application uses the Microservice architecture pattern 
 - Author service - store the information about the author
 - Publisher service - publishing the books from the book-service
 
-Consequently, the code that displays the vehicle details needs to fetch information from all of these services.
+Consequently, the code that displays the books details needs to fetch information from all of these services.
 
 Each service is:
 
