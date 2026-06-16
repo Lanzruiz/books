@@ -1,30 +1,18 @@
 
-# Badges
 
-![Java CI](https://github.com/rcherara/building-a-microservice-architecture/workflows/Java%20CI/badge.svg?branch=master)
 
-# Best Practices of a Microservice Architecture with Spring Cloud, React, CI, CD and IaC
+# Best Practices of a Microservice Architecture with Spring Boot, GraphQL, Docker, MongoDB, PostresSQL.
 
 This repository is Dealer Management Systems based on a microservices architecture.
 
 The architecture supports the following technologies: 
 
-  * Frameworks - Spring Boot, Spring Cloud, Feign, Eureka, Resilience4j.
-  * UI - React Native or React Native Web to build as a mobile app or hybrid app (web + mobile)
-  * Firebase, AWS Amplify, or Hasura (using GraphQL subscriptions) to send messages in realtime
-  * Cloudinary or Firebase storage for sending messages with image or video content
-  * Serverless functions like AWS Lambda or Firebase Functions for notifications
-  * Cloudinary or Firebase storage for uploading pictures or video
-  * Algolia for lightning-fast vehicle searching
-  * Databases - H2, MySQL, MariaDB, PostgreSQL, MongoDB
-  * API Management : Spring REST Docs, Swagger
-  * Security: JWT (JSON Web Token) with OIDC, OpenID Connect with MITREid Connect, OAuth 2.0,  “UAA” (User Account and Authentication) server.
-  * Message brokers - Apache Kafka, RabbitMQ, and Redis Streams
-  * Services communicate asynchronously using domain events, and command/reply messages.
-  * Cloud - AWS, Pivotal Cloud Foundry (PCF), Google Compute Platform (GCP), OpenStack, VMware vSphere,  Heroku, Netlify
-  * Server Side - Spring Boot, Spring Security, Maven, Hibernate, Liquibase, Cucumber, ArchUnit, Gatling, Elasticsearch, Kafka, Elastic Stack, Prometheus
-  * Client Side - HTML5, Bootstrap, TypeScript, Angular, React.
-  * CI / CD - Jenkins, Travis CI, Github Workflows, Docker, Docker Compose, Kubernetes, Minikube, Minishift, OpenShift, Jenkins X, KOTS, ECS (Elastic Container Service), EKS (Elastic Kubernetes Service)
+  * Frameworks - Spring Boot, GraphQL Apollo.
+  * Databases - PostgreSQL, MongoDB
+  * API Management : GraphQL Apollo, Swagger
+  * Message brokers - Apache Kafka
+  * Server Side - Spring Boot, Maven, Hibernate, Liquibase, Kafka
+  * CI / CD - Docker, Docker Compose
 
 # The Key Requirements
 
@@ -36,40 +24,7 @@ The architecture supports the following technologies:
   * Simplified maintenance.
   * Application portability.
   * Application auto-scaling.
-  * Centralized platform administration.
-  * Centralized logging.
-  * Dynamic routing.
-  * Application health management.
-  * Integration with external logging components like Elasticsearch and Logstash.
-  * Role-based access for deployed applications.
-  * Provision for vertical and horizontal scaling.
-  * Infrastructure security.
-  * Support for various IaaS providers.
 
-# Twelve-factor application guide
-1.  **Codebase** One codebase tracked in VCS, many deploys. One app has a single code base and its tracked by a version control system like Git, Subversion, Mercurial, etc. You can do many deployments (from the same code base) to development, testing, staging and production environments.
-
-2.  **Dependencies**. Explicity declare and isolate dependencies. Some times your environments don’t have internect connection (if is a private system), so you need to think about packaging your dependencies (jars, gems, shared-libraries, etc) or if you have an internal repository of libraries, you can declared manifest like poms, gemfile, bundles, etc. Never rely that you will have everything in your final environment.
-
-3.  **Configuration**. Store config in the environment. You should’t hardcode anything that varies. Use the environment variables or a configuration server.
-
-4. **Backing Services** Treat backing services as attached resources. Connect to services via URL or configuration.
-
-5.  **Build, Release, Run** Strictly separate build and run stages. Related to a CI/CD (Continuous Integration, Continuous Delivery)
-
-6.  **Processes** Execute the app as one or more stateless processes. Processess should not store internal state. Share nothing. Any necessary state should be considered as a Backing Service.
-
-7.  **Port binding** Export services via port port binding. Your application is self-container, and these apps are exposed via port binding. An application can become another App’ service.
-
-8.  **Concurrency** Scale out via the process model. Scale by adding more application instances. Individual processes are free to multithread.
-
-9.  **Disposability** Maximize robustness with fast startup and graceful shutdown. Processes should be disposable (remember they are stateless). Fault tolerant.
-
-10.  **Environment** parity. Keep development, staging and production environments as similar as possible. This is a result of High Quality, ensures continuous delivery.
-
-11. **Logs** Treat logs as event streams. Your apps should write to stdout. Logs are streams of aggregated, time-ordered events.
-
-12. **Admin processes** Run admin and managemenr tasks as one-off processes. Run admin processes on the platform: DB migrations, one time scripts, etc.
 
 # Architecture
 
@@ -103,51 +58,16 @@ Each service is:
 * :small_orange_diamond: Asynchronous Java API + Reactive Programming Model. 
 
 
-###### Tutorials https://rcherara.ca/
-
-# Using patterns
-
-- Service Discovery & Service Registry : Eureka
-- Load balancing : Spring Cloud Loadbalancer
-- Reliability Circuit-breaking  and Fault-tolerance  :  Resilience4j, Istio, Service Mesh.
-- API Gateway 	: Spring Cloud Gateway
-- Externalized configuration  : Spring Cloud Config
-- Failure- and latency-aware, load balancing, Cluster failover and Retry
-- Distributed tracing : Spring Cloud Sleuth.
-- Hexagonal Architecture (Ports and Adapters Pattern)
-- Consumer Driven Contract : Spring Cloud Contract.
-- Security : Access Token with Okta, Spring Cloud Security
-- Observability : 
-  - Log aggregation : AWS Cloud Watch
-  - Application metrics - instrument a service’s code to gather statistics about operations
-  - Audit logging - record user activity in a database
-  - Distributed tracing - Zipkin, Sleuth and ELK Stack
-  - Exception tracking - Sentry, TrackJS, Raygun and Airbrake.
-  - Health check API : EurekaClient, Spring Boot Admin and Spring Boot Actuator
-  - Log deployments and changes : GitHub, AWS CloudTrail and LogDNA.
-- Deployment patterns : 
-  - Service instance per Container - Dockerfile and DockerComposite
-  - Serverless deployment - deploy a service using serverless deployment platform
-  - Service deployment platform - deploy services using a highly automated deployment platform that provides a service abstraction
-- Transactional messaging:
-- Data management : 
-  - Database per Service - each service has its own private database
-  - Domain event - publish an event whenever data changes
-  - Event sourcing - persist aggregates as a sequence of events
-
 
 ## Building and running the application
 
 This is a Maven project. However, you  need to have installed :
   - Java Development Kit >= 11
-  - React "^16.13.1"
+  - GraphQL
+  - Express
   - Docker
   - Maven
-  - Kubernates CLI
-  - Minikube
-  - Minishift
-  - Ansible
-  - Jenkins
+
 
 The details of how to build and run the services depend slightly on whether you are using  
   - SaaS (Software as a Service)
