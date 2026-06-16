@@ -1,5 +1,5 @@
 # api
-Vehicle Service API
+Author Service API
 
 # Install
 
@@ -8,6 +8,6 @@ yarn install
 
 # Run the service
 
-yarn run dev
+yarn run up
 
 hello!

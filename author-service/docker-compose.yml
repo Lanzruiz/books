@@ -1,6 +1,0 @@
-version: "3"
-services:
-  api-server:
-    image: lanzprimeit/vehicle-service
-    ports:
-      - "4000:4000"
