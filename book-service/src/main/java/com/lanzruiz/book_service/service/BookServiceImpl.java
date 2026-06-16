@@ -27,7 +27,7 @@ public class BookServiceImpl implements BookService {
 	      Book savedBook = bookRepository.save(book);
 
 	      // Publish to Kafka
-	      bookProducer.publish(savedBook);
+	      bookProducer.sendBook(savedBook);
 
 	      return savedBook;
 	  }
@@ -51,6 +51,7 @@ public class BookServiceImpl implements BookService {
 
 	        existingBook.setTitle(updatedBook.getTitle());
 	        existingBook.setAuthor(updatedBook.getAuthor());
+	        existingBook.setDescription(updatedBook.getDescription());
 	        existingBook.setIsbn(updatedBook.getIsbn());
 
 	        return bookRepository.save(existingBook);

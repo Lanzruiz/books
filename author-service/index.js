@@ -29,9 +29,12 @@ console.log(startConsumer);
 // sample commit
 
 
-const server = new ApolloServer({
-    schema: buildSubgraphSchema([{typeDefs, resolvers}])
-})
+// const server = new ApolloServer({
+//     schema: buildSubgraphSchema([{typeDefs, resolvers}])
+// })
+
+const server = new ApolloServer({ typeDefs, resolvers });
+
 
 
 
@@ -40,9 +43,11 @@ mongoose.connect(MONGODB, {useNewUrlParser: true})
         console.log("MongoDB Connected");
         // return server.listen({port: port});
     })
-    .then((res) => {
+    .then((res) = async () =>{
         // The `listen` method launches a web server.
-        const { url } = startStandaloneServer(server);
+        const { url } = await startStandaloneServer(server, {
+            listen: { port: 4001 }, 
+        });
         console.log(`🚀  Server ready at ${url}`);
 
     });

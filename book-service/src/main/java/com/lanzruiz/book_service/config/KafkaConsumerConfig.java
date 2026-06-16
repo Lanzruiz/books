@@ -1,5 +1,6 @@
 package com.lanzruiz.book_service.config;
 
+import com.lanzruiz.book_service.entity.Author;
 import com.lanzruiz.book_service.entity.Book;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -18,11 +19,12 @@ import java.util.Map;
 @EnableKafka
 public class KafkaConsumerConfig {
 
+ 
     @Bean
-    public ConsumerFactory<String, Book> consumerFactory() {
+    public ConsumerFactory<String, Author> authorConsumerFactory() {
 
-        JsonDeserializer<Book> deserializer =
-                new JsonDeserializer<>(Book.class);
+        JsonDeserializer<Author> deserializer =
+                new JsonDeserializer<>(Author.class);
 
         deserializer.addTrustedPackages("*");
 
@@ -35,7 +37,7 @@ public class KafkaConsumerConfig {
 
         props.put(
                 ConsumerConfig.GROUP_ID_CONFIG,
-                "book-group"
+                "author-group"
         );
 
         props.put(
@@ -50,14 +52,16 @@ public class KafkaConsumerConfig {
         );
     }
 
+
+    
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Book>
+    public ConcurrentKafkaListenerContainerFactory<String, Author>
     kafkaListenerContainerFactory() {
 
-        ConcurrentKafkaListenerContainerFactory<String, Book> factory =
+        ConcurrentKafkaListenerContainerFactory<String, Author> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
 
-        factory.setConsumerFactory(consumerFactory());
+        factory.setConsumerFactory(authorConsumerFactory());
 
         return factory;
     }

@@ -1,44 +1,45 @@
 const  { gql } = require('graphql-tag');
 
 module.exports = gql`
-type Author {
-  id: ID!
-  firstName: String!
-  lastName: String!
-  email: String!
-  biography: String
-  birthDate: String
-  nationality: String
-  createdAt: String!
-  updatedAt: String!
+
+type BookPublish {
+  title: String!
+  isbn: String!
+  author: String!
+  bookId: String!
+  description: String!
+  publicationDate: String
+  status: Boolean!
 }
 
-input CreateAuthorInput {
-  firstName: String!
-  lastName: String!
-  email: String!
-  biography: String
-  birthDate: String
-  nationality: String
+input CreateBookPublishInput {
+  title: String!
+  bookId: String!
+  author: String!
+  isbn: String!
+  description: String!
 }
 
-input UpdateAuthorInput {
-  firstName: String
-  lastName: String
-  email: String
-  biography: String
-  birthDate: String
-  nationality: String
+input UpdateBookPublishInput {
+  title: String
+  isbn: String
+  bookId: String
+  description: String
+  publicationDate: String
+  status: Boolean
 }
 
 type Query {
-  authors: [Author!]!
-  author(id: ID!): Author
+
+  publishedBooks: [BookPublish!]!
+  publishedBook(id: ID!): BookPublish
+
 }
 
 type Mutation {
-  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
-  updateAuthor(id: ID!, input: UpdateAuthorInput!): Author!
-  deleteAuthor(id: ID!): Boolean!
+  createBookPublish(createBookPublishInput: CreateBookPublishInput!): BookPublish!
+  updateBookPublish(id: ID!, input: UpdateBookPublishInput!): BookPublish!
+  deleteBookPublish(id: ID!): Boolean!
+ 
 }
 `

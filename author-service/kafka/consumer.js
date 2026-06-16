@@ -14,7 +14,7 @@ async function run() {
   await consumer.connect();
 
   await consumer.subscribe({
-    topic: "book-topic",
+    topic: "author-topic",
     fromBeginning: true,
   });
 
@@ -23,18 +23,6 @@ async function run() {
     eachMessage: async ({ message }) => {
       console.log(message.value.toString());
 
-
-
-                    //   const author = new Author({
-              
-                    //       firstName: "Test",
-                    //       lastName: "Test",
-                    //       email: "test@example.com",
-                    //       biography: "This is a test author.",
-      
-                    //   });
-      
-                    //   const savedAuthor = await author.save();
     },
   });
 }

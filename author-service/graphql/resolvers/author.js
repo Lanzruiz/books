@@ -24,7 +24,13 @@ module.exports = {
 
                 const savedAuthor = await author.save();
 
-                publishAuthor(savedAuthor);
+                publishAuthor({
+                    id: savedAuthor._id,
+                    firstName: savedAuthor.firstName,
+                    lastName: savedAuthor.lastName,
+                    email: savedAuthor.email,
+                    biography: savedAuthor.biography,
+                });
 
                 return {
                     id: savedAuthor._id,

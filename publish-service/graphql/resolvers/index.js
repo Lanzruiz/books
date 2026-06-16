@@ -1,5 +1,4 @@
-
-const authorResolvers = require('./author');
+const bookPublishResolvers = require('./bookpublish');
 
 
 
@@ -7,10 +6,10 @@ module.exports = {
 
     Query: {
 
-        ...authorResolvers.Query
+        ...bookPublishResolvers.Query
     },
     Mutation: {
   
-        ...authorResolvers.Mutation
+        ...bookPublishResolvers.Mutation
     },
 };

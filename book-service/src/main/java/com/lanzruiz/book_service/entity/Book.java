@@ -12,6 +12,7 @@ public class Book {
 	   private Long id;
 	   private String title;
 	   private String author;
+	   private String description;
 	   private int isbn;
 	   
 	   public Book() {
@@ -61,11 +62,23 @@ public class Book {
 	   }
 
 
+	   public String getDescription() {
+		return description;
+	   }
+
+	   public void setDescription(String description) {
+		   this.description = description;
+	   }
 
 	   @Override
 	   public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", description=" + description + ", isbn="
+				+ isbn + "]";
 	   }
+
+	   
+
+	   
 
 
 
