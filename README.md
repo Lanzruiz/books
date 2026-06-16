@@ -75,7 +75,7 @@ The architecture supports the following technologies:
 
 The following diagram shows the targert platform architecture.:
 
-![Targert platform architecture](/docs/images/Targert-platform-architecture.png)
+![Targert platform architecture](/docs/images/architecture.png)
 
 Since an auto dealership application uses the Microservice architecture pattern for vehicle details data is spread over multiple services. For example,
 
