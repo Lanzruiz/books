@@ -11,7 +11,7 @@ The architecture supports the following technologies:
   * Databases - PostgreSQL, MongoDB
   * API Management : GraphQL Apollo, Swagger
   * Message brokers - Apache Kafka
-  * Server Side - Spring Boot, Maven, Hibernate, Liquibase, Kafka
+  * Server Side - Spring Boot, Maven, Hibernate, JPA, Kafka
   * CI / CD - Docker, Docker Compose
 
 # The Key Requirements
