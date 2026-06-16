@@ -18,8 +18,6 @@ public class Book {
 		   
 	   }
 	   
-	   
-
 	   public Book(Long id, String title, String author, int isbn) {
 		super();
 		this.id = id;

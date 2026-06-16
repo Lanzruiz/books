@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lanzruiz.book_service.entity.Book;
+import com.lanzruiz.book_service.kafka.BookProducer;
 import com.lanzruiz.book_service.service.BookService;
 
 @RestController
@@ -21,10 +22,12 @@ import com.lanzruiz.book_service.service.BookService;
 public class BookController {
 	
 	 private final BookService bookService;
+
 	 
 	 // Constructor Injection
 	 public BookController(BookService bookService) {
 	     this.bookService = bookService;
+	     
 	 }
 	 
 	 @GetMapping
@@ -45,6 +48,7 @@ public class BookController {
 	 
 	 @PostMapping
 	 public Book createBook(@RequestBody Book book) {
+	
 	     return bookService.createBook(book);
 	 }
 	 

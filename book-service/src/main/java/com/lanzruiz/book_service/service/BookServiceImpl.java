@@ -5,22 +5,31 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.lanzruiz.book_service.entity.Book;
+import com.lanzruiz.book_service.kafka.BookProducer;
 import com.lanzruiz.book_service.repository.BookRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
 	
 	  private final BookRepository bookRepository;
+	  private final BookProducer bookProducer;
 
 	  
 	  // Constructor Injection
-	  public BookServiceImpl(BookRepository bookRepository) {
+	  public BookServiceImpl(BookRepository bookRepository, BookProducer bookProducer) {
 	      this.bookRepository = bookRepository;
+	      this.bookProducer = bookProducer;
 	  }
 	  
 	  @Override
 	  public Book createBook(Book book) {
-	      return bookRepository.save(book);
+		  // Save to database
+	      Book savedBook = bookRepository.save(book);
+
+	      // Publish to Kafka
+	      bookProducer.publish(savedBook);
+
+	      return savedBook;
 	  }
 	  
 	  @Override

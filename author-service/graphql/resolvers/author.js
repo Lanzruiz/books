@@ -1,4 +1,5 @@
 const Author = require('../../models/Author');
+const { publishAuthor } = require('../../kafka/producer');
 
 module.exports = {
     Mutation: {
@@ -22,6 +23,8 @@ module.exports = {
                 });
 
                 const savedAuthor = await author.save();
+
+                publishAuthor(savedAuthor);
 
                 return {
                     id: savedAuthor._id,
