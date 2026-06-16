@@ -38,7 +38,7 @@ type Query {
 
 type Mutation {
   createBookPublish(createBookPublishInput: CreateBookPublishInput!): BookPublish!
-  updateBookPublish(id: ID!, input: UpdateBookPublishInput!): BookPublish!
+  updateBookPublish(id: ID!): BookPublish!
   deleteBookPublish(id: ID!): Boolean!
  
 }

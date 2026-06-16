@@ -2,6 +2,23 @@ const BookPublish = require('../../models/BookPublish');
 
 module.exports = {
     Mutation: {
+        async updateBookPublish(_, { id }) {
+            try {
+                const book = await BookPublish.findByIdAndUpdate(
+                    id,
+                    { status: true, updatedAt: new Date() },
+                    { new: true }
+                );
+
+                if (!book) {
+                    throw new Error("Book not found");
+                }
+
+                return book;
+            } catch (error) {
+                throw new Error(`Failed to update book: ${error.message}`);
+            }
+        },
         async createBookPublish(_, { createBookPublishInput: { title, isbn, description, author } }) {
             try {
                 const existingBook = await BookPublish.findOne({
