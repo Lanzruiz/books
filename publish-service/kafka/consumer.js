@@ -23,15 +23,16 @@ async function run() {
     await consumer.run({
         eachMessage: async ({ message }) => {
             console.log(message.value.toString());
-            const { title, isbn, description, author } = JSON.parse(message.value.toString());
-
-            console.log("Recieved message from Kafka:", { title, isbn, description, author});
+            const { title, isbn, description, author, id } = JSON.parse(message.value.toString());
+            console.log("id of book", id);
             const book = new BookPublish({
+                bookId: id,
                 title: title,
                 isbn: isbn,
                 author: author,
                 description: description,
-             
+                status: false,
+                createdAt: new Date()
             });
 
             const savedBook = await book.save();

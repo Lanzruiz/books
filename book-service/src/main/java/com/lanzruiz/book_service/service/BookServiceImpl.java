@@ -28,6 +28,8 @@ public class BookServiceImpl implements BookService {
 
 	      // Publish to Kafka
 	      bookProducer.sendBook(savedBook);
+	      
+	      System.out.println(savedBook.getId());
 
 	      return savedBook;
 	  }

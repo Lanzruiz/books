@@ -9,13 +9,10 @@ const bookPublishSchema = new mongoose.Schema(
     },
     bookId: {
         type: String,
-        required: true,
         unique: true
     },
     isbn: {
       type: String,
-      required: true,
-      trim: true
     },
     author: {
       type: String,

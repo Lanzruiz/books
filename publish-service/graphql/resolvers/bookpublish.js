@@ -19,7 +19,7 @@ module.exports = {
                 throw new Error(`Failed to update book: ${error.message}`);
             }
         },
-        async createBookPublish(_, { createBookPublishInput: { title, isbn, description, author } }) {
+        async createBookPublish(_, { createBookPublishInput: { title, isbn, description, author, bookId } }) {
             try {
                 const existingBook = await BookPublish.findOne({
                     isbn: isbn,
@@ -30,6 +30,7 @@ module.exports = {
                 }
 
                 const book = new BookPublish({
+                    bookId: bookId,
                     title: title,
                     isbn: isbn,
                     author: author,
