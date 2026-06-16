@@ -75,105 +75,78 @@ The details of how to build and run the services depend slightly on whether you 
   - PaaS (Platform as a Service)
   - Local
 
-## Building and running using SaaS
+## Building and running the Services
 
-First, must sign up to get your credentials in order to get free access to the SaaS version.
-
-Next, build the application
+Clone the Repo
 
 ```
-  $ git clone https://github.com/rcherara/rcherara-spring-cloud-microservice.git
-  $ cd rcherara-spring-cloud-microservice
-  $ mvn install
+  $ git clone https://github.com/Lanzruiz/books.git
 ```
+
+Run the Kafka
+
+```
+  $ cd kafka
+  $ docker compose up
+```
+Run the Mongodb
+
+```
+  $ cd mongodb
+  $ docker compose up
+```
+
+Run the Postgres
+
+```
+  $ cd postgres
+  $ docker compose up
+```
+
 
 Next, you can launch the services using Docker Compose:
 
+
+Launch the Book Service
 ```
- $ docker-compose up -d
+ $ cd book-service
+ $ ./mvnw spring-boot:run
 ```
 
-# Modules:
+Launch the Author Service
+```
+ $ cd author-service
+ $ yarn run up
+```
 
-- [x] config-service
-- [x] discovery-service
-- [x] gateway-service
-- [x] config-repo
-- [x] vehicle-service
-- [x] vehicle-ui-web
-- [ ] vehicle-ui-mobile
-- [ ] dealership-service
-- [ ] transaction-service
-- [X] admin-dashboard
-- [ ] Shell Scripts  files (startRabbit, startDevVault, set-local-env-git, install-letsencrypt-cert, create-services, create-release-branch)
-- [ ] RabbitMq 
-- [ ] Kafka
-- [x] UI React
-- [ ] UI AngularJS
-- [ ] CI / CD - Jenkins
-- [ ] CI / CD - Github Workflows 
-- [ ] CI / CD - Travis CI
-- [ ] CI / CD - Kubernetes (config, configmap, deployment, service, support-bundle, replicated-app)
-- [ ] CI / CD - Docker, Docker Compose
-- [ ] CI / CD - Jenkins X
-- [ ] Auth-server
-- [ ] IaC
+Launch the Publish Service
+```
+ $ cd publish-service
+ $ yarn run up
+```
+
 
 # Important endpoints
 
-Run locally with Maven, Visual Studio Code, STS, Eclipse or IntelliJ:
+Run locally with Maven,  Eclipse or IntelliJ:
+
+Book Service
 
 :point_right: Gateway http://localhost:8080  
-:point_right: Eureka Discovery Dashboard http://localhost:8761  
-:point_right: Config Server http://localhost:7761  
-:point_right: Spring Admin Dashboard http://localhost:9761  
-:point_right: Vehicle service http://localhost:8081  
-:point_right: Dealership service http://localhost:8082  
-:point_right: Transaction service http://localhost:8083  
-:point_right: RabbitMq (username/password: guest/guest) http://localhost:15000 
+:point_right: Adding Book post http://localhost:8081/api/book
+:point_right: Get all Books get http://localhost:8081/api/book
+:point_right: Get the Book by Id get http://localhost:8081/api/{id}
+:point_right: Delete a Book by Id delete http://localhost:8081/api/book{id}
+:point_right: Update a Book update http://localhost:8081/api/book{id}
 
+Author Service
 
+:point_right: Apollo http://localhost:4001
 
-Run with docker-compose:
+Publish Service
 
-:point_right: Gateway http://localhost:5080  
-:point_right: Eureka Discovery Dashboard http://localhost:5761  
-:point_right: Config Server http://localhost:5760  
-:point_right: Spring Admin Dashboard http://localhost:5761  
-:point_right: Vehicle service http://localhost:5081  
-:point_right: Dealership service http://localhost:5082  
-:point_right: Transaction service http://localhost:5083  
-:point_right: RabbitMq (username/password: guest/guest) http://localhost:15000 
+:point_right: Apollo http://localhost:4001
 
-
-## Spring Cloud Config Server
-
-Spring Cloud Config Server offers the following benefits:
-
-- HTTP resource-based API for external configuration (name-value pairs or equivalent YAML content)
-
-- Encrypt and decrypt property values (symmetric or asymmetric)
-
-- Embeddable easily in a Spring Boot application using @EnableConfigServer
-
-## Spring Cloud Config Client
-
-Spring Cloud Config Client lets you:
-
-- Bind to the Config Server and initialize Spring Environment with remote property sources.
-
-- Encrypt and decrypt property values (symmetric or asymmetric).
-
-- @RefreshScope for Spring @Beans that want to be re-initialized when configuration changes.
-
-Use management endpoints:
-
-  - /env for updating Environment and rebinding @ConfigurationProperties and log levels.
-  - /refresh for refreshing the @RefreshScope beans.
-  - /restart for restarting the Spring context (disabled by default).
-  - /pause and /resume for calling the Lifecycle methods (stop() and start() on the ApplicationContext).
-
-Bootstrap application context: It binds to the Config Server and decrypts property values.
 
 ## Using the Swagger UI
 
@@ -185,106 +158,7 @@ All Swagger Resources(groups) : http://localhost:<SERVICE-PORT>/swagger-resource
 Swagger UI endpoint: http://localhost:<SERVICE-PORT>/swagger-ui.html
 Swagger docs endpoint: http://localhost:<SERVICE-PORT>/v2/api-docs
 
-## Monitor services configuration 
 
-- Dealership-service   : curl -s http://localhost:<SERVICE-PORT>/monitor/dealership-service | jq '.'
-- Discovery-service.   : curl -s http://localhost:<SERVICE-PORT>/monitor/discovery-service | jq '.'
-- Gateway-service.     : curl -s http://localhost:<SERVICE-PORT>/monitor/gateway-service | jq '.'
-- Transaction-service. : curl -s http://localhost:<SERVICE-PORT>/monitor/transaction-service | jq '.'
-- Vehicle-service.yml. : curl -s http://localhost:<SERVICE-PORT>/monitor/vehicle-service | jq '.'
-
-## Build and run service
-
-### Before you start
-
-1. Be sure to clone the project with the command: git clone --recurse-submodules <url>
-2. Install Docker along with Docker Compose.
-3. Build the project: mvn clean package -DskipTests
-
-```shell
-mkdir rcherara
-cd rcherara
-git clone --recurse-submodules <url>
-cd rcherara-spring-cloud-microservice
-mvn clean package -DskipTests
-```
-
-### Vehicle service
-
-To run locally:
-  ```shell
-  $ cd vehicle-service
-  $ java -jar target/vehicle-service-0.0.1.BUILD-SNAPSHOT.jar
-  ```
-
-### Dealership service
-
-To run locally:
-```shell
-cd dealership-service
-java -jar target/dealership-service-0.0.1.BUILD-SNAPSHOT.jar
-```
-### Transaction service
-
-To run locally:
-```shell
-cd transaction-service
-java -jar target/transaction-service-0.0.1.BUILD-SNAPSHOT.jar
-```
-
-### Gateway Server
-
-To run locally:
-```shell
-cd gateway-service
-java -jar target/gateway-service-0.0.1.BUILD-SNAPSHOT.jar
-```
-
-###  Discovery server
-
-To run locally:
-```shell
-cd discovery-service
-java -jar target/discovery-service-0.0.1.BUILD-SNAPSHOT.jar
-```
-
-###  Admin server
-
-To run locally:
-```shell
-cd admin-service
-java -jar target/admin-service-0.0.1.BUILD-SNAPSHOT.jar
-```
-
-
-# Guides
-
-The following guides illustrate how to use some features concretely:
-* [Pattern: API Gateway / Backends for Frontends](https://microservices.io/patterns/apigateway.html)
-* [Pattern: Microservice Architecture](https://microservices.io/patterns/microservices.html/)
-* [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
-* [Event-Driven Data Management for Microservices](https://www.nginx.com/blog/event-driven-data-management-microservices/)
-* [Asynchronous microservices](http://eventuate.io/whyeventdriven.html)
-
-## Reference
-
-1.  [Microservice Architecture](https://microservices.io/patterns/microservices.html)
-2.  [Spring Cloud Gateway](https://cloud.spring.io/spring-cloud-gateway/reference/html/)
-3.  [Minishift– Cherara Reddag blog](rcherara.ca/installing-minishift-on-macos/)
-4.  [About Spring cloud security OAuth2](http://blog.spring-cloud.io/blog/oauth-authorize.html)
-5.  [Dive into Eureka – nobodyiam's blog](http://nobodyiam.com/2016/06/25/dive-into-eureka/)
-6.  [About Spring cloud security OAuth2](http://blog.spring-cloud.io/blog/oauth-authorize.html)
-7.  [Synthesis-Based Software Architecture Design](https://slideplayer.com/slide/1672922/)
-8.  [OAuth 2.0 Login](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/htmlsingle/#oauth2login)
-9.  [OAuth 2.0 Resource Server](https://docs.spring.io/spring-security/site/docs/5.2.x/reference/htmlsingle/#oauth2resourceserver)
-10. [Spring Cloud Security](https://cloud.spring.io/spring-cloud-static/spring-cloud-security/2.2.0.M3/reference/html/)
-11. [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html)
-12. [Spring Cloud](https://spring.io/projects/spring-cloud)
-13. [The Twelve Factors](https://12factor.net)
-14. [Maximize Observability of your CI/CD Pipeline with LogDNA](https://logdna.com/maximize-observability-of-your-ci-cd-pipeline-with-logdna/)
-15. [Set Up A CI/CD Pipeline With Kubernetes ](https://www.linux.com/tutorials/set-cicd-pipeline-kubernetes-part-1-overview/)
-16. [Database Internationalization](https://medium.com/walkin/database-internationalization-i18n-localization-l10n-design-patterns-94ff372375c6)
-17. [The Exagonal Architecture](https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/)
 # Help me to get the app famous!
 
 Eco-system  for a car dealer based on a microservices architecture is open source and want to give to you the basics knowledge about cloud native application, architecture, DevOps with Docker, Kubernate Cloud, Spring Java, React Typescript and  technologies. A star to this project will be appreciate!
@@ -292,7 +166,4 @@ Eco-system  for a car dealer based on a microservices architecture is open sourc
 ## Got questions?
 
 ### Author
-CHERARA REDDAH.
-
-* [Cherara Reddah Linkedin](https://www.linkedin.com/in/cherarareddah/)
-* [Cherara Reddah Bog](https://rcherara.ca)
+Lanz Ruiz.

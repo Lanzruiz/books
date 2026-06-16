@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest ./graphql/tests",
-    "dev": "nodemon index.js"
+    "up": "nodemon index.js"
   },
   "author": "Lanz Ruiz",
   "license": "ISC",
