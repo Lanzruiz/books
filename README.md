@@ -133,8 +133,6 @@ Run locally with Maven,  Eclipse or IntelliJ:
 Book Service
 
 
-:point_right: Gateway http://localhost:8080
-
 :point_right: Adding Book post http://localhost:8081/api/book
 
 :point_right: Get all Books get http://localhost:8081/api/book
@@ -144,6 +142,7 @@ Book Service
 :point_right: Delete a Book by Id delete http://localhost:8081/api/book{id}
 
 :point_right: Update a Book update http://localhost:8081/api/book{id}
+
 
 
 Author Service
@@ -157,18 +156,9 @@ Publish Service
 
 ## Using the Swagger UI
 
-The services are Swagger "enabled".
-
-Open the url http://${DOCKER_HOST_IP}:<SERVICE-PORT>/swagger-ui.html
-
-All Swagger Resources(groups) : http://localhost:<SERVICE-PORT>/swagger-resources
-Swagger UI endpoint: http://localhost:<SERVICE-PORT>/swagger-ui.html
-Swagger docs endpoint: http://localhost:<SERVICE-PORT>/v2/api-docs
+The Book Service is using the swagger http://localhost:8081/swagger-ui/index.html#/
 
 
-# Help me to get the app famous!
-
-Eco-system  for a car dealer based on a microservices architecture is open source and want to give to you the basics knowledge about cloud native application, architecture, DevOps with Docker, Kubernate Cloud, Spring Java, React Typescript and  technologies. A star to this project will be appreciate!
 
 ## Got questions?
 
