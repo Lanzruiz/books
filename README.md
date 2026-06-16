@@ -62,7 +62,7 @@ Each service is:
 ## Building and running the application
 
 This is a Maven project. However, you  need to have installed :
-  - Java Development Kit >= 11
+  - Java Development Kit >= 26
   - GraphQL
   - Express
   - Docker
