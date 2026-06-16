@@ -132,12 +132,19 @@ Run locally with Maven,  Eclipse or IntelliJ:
 
 Book Service
 
-:point_right: Gateway http://localhost:8080  
+
+:point_right: Gateway http://localhost:8080
+
 :point_right: Adding Book post http://localhost:8081/api/book
+
 :point_right: Get all Books get http://localhost:8081/api/book
+
 :point_right: Get the Book by Id get http://localhost:8081/api/{id}
+
 :point_right: Delete a Book by Id delete http://localhost:8081/api/book{id}
+
 :point_right: Update a Book update http://localhost:8081/api/book{id}
+
 
 Author Service
 
