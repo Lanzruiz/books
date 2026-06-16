@@ -79,9 +79,9 @@ The following diagram shows the targert platform architecture.:
 
 Since an auto dealership application uses the Microservice architecture pattern for vehicle details data is spread over multiple services. For example,
 
-- Vehicle Service - basic information about the vehicle
-- Transaction service - purchase history for vehicle, vehicle price
-- Dealership service - vehicle availability,Order processing, stock
+- Book Service - basic information about the book
+- Author service - store the information about the author
+- Publisher service - publishing list books
 
 Consequently, the code that displays the vehicle details needs to fetch information from all of these services.
 
@@ -91,26 +91,17 @@ Each service is:
 
 * :small_orange_diamond: Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services.
 
-* :small_orange_diamond: Independently deployable - enables a team to deploy their service without having to coordinate with other teams 
+* :small_orange_diamond: Independently deployable - enables a team to deploy their service without having to coordinate other service
 
 * :small_orange_diamond: Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams. 
 
-* :small_orange_diamond: Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. 
+* :small_orange_diamond: Services communicate using either synchronous protocols such as HTTP/REST. 
 * :small_orange_diamond: Services can be developed and deployed independently of one another. 
 
 * :small_orange_diamond: Each service has its own database in order to be decoupled from other services. 
 
-* :small_orange_diamond: Data consistency between services is maintained using the Saga pattern. 
-
-* :small_orange_diamond: Client-side Discovery pattern or Server-side Discovery pattern to route requests to available service instances. 
-
-* :small_orange_diamond: The API Gateway authenticate the user and pass an Access Token containing information about the user to the services 
-
-* :small_orange_diamond: API Gateway  use a Circuit Breaker to invoke services :small_orange_diamond: API gateway often implements the API Composition pattern. 
-
 * :small_orange_diamond: Asynchronous Java API + Reactive Programming Model. 
 
-* :small_orange_diamond: Hystrix Fault Tolerance.
 
 ###### Tutorials https://rcherara.ca/
 
