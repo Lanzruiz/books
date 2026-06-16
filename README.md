@@ -116,12 +116,14 @@ Launch the Book Service
 Launch the Author Service
 ```
  $ cd author-service
+ $ yarn install
  $ yarn run up
 ```
 
 Launch the Publish Service
 ```
  $ cd publish-service
+ $ yarn install
  $ yarn run up
 ```
 
